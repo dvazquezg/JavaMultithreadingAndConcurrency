@@ -24,8 +24,7 @@ public class Main {
       t.join(2000); // wait 2 seconds at most (avoids waiting for super long computations)
     }
 
-    for (int i = 0; i < threads.size(); i++) {
-      FactorialThread factorialThread = threads.get(i);
+    for (FactorialThread factorialThread : threads) {
       if (factorialThread.isFinished()) {
         System.out.println(
             "Factorial of "
@@ -37,7 +36,7 @@ public class Main {
         System.out.println(
             "The calculation for "
                 + factorialThread.getInputNumber()
-                + " is taking so long, thus has been halted.");
+                + " was taking so long, thus has been halted.");
       }
     }
   }
